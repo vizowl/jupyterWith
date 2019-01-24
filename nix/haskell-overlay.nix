@@ -62,6 +62,7 @@ in
         ihaskell-rlangqq = callDisplayPackage "rlangqq";
         ihaskell-static-canvas = callDisplayPackage "static-canvas";
         ihaskell-widgets = callDisplayPackage "widgets";
+        aeson = addBuildDepends super.aeson [ self.contravariant ];
 
         # -- dh-core integration
         # the new datasets module from dh-core doesn't build because one of the
