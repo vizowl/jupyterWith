@@ -26,6 +26,7 @@ in
             "${ihaskellSrc}/ihaskell-display/ihaskell-${name}"
             {};
         dontCheck = pkgs.haskell.lib.dontCheck;
+        addBuildDepends = pkgs.haskell.lib.addBuildDepends;
       in
       {
         # -- ihaskell overrides
@@ -33,7 +34,6 @@ in
         # version of haskell-src-exts, which creates incompatibilities
         # when building ihaskell
         hlint = hspkgs.callHackage "hlint" "2.1.11" {};
-        contravariant = hspkgs.callHackage "contravariant" "1.5" {};
         zeromq4-haskell = dontCheck hspkgs.zeromq4-haskell;
         ihaskell          = pkgs.haskell.lib.overrideCabal (
                              hspkgs.callCabal2nix "ihaskell" ihaskellSrc {}) (_drv: {
