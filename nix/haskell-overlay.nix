@@ -34,6 +34,7 @@ in
         # version of haskell-src-exts, which creates incompatibilities
         # when building ihaskell
         hlint = hspkgs.callHackage "hlint" "2.1.11" {};
+        aeson = addBuildDepends super.aeson [ self.contravariant ];
         zeromq4-haskell = dontCheck hspkgs.zeromq4-haskell;
         ihaskell          = pkgs.haskell.lib.overrideCabal (
                              hspkgs.callCabal2nix "ihaskell" ihaskellSrc {}) (_drv: {
