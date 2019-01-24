@@ -33,6 +33,7 @@ in
         # version of haskell-src-exts, which creates incompatibilities
         # when building ihaskell
         hlint = hspkgs.callHackage "hlint" "2.1.11" {};
+        contravariant = hspkgs.callHackage "contravariant" "1.5" {};
         zeromq4-haskell = dontCheck hspkgs.zeromq4-haskell;
         ihaskell          = pkgs.haskell.lib.overrideCabal (
                              hspkgs.callCabal2nix "ihaskell" ihaskellSrc {}) (_drv: {
@@ -62,7 +63,6 @@ in
         ihaskell-rlangqq = callDisplayPackage "rlangqq";
         ihaskell-static-canvas = callDisplayPackage "static-canvas";
         ihaskell-widgets = callDisplayPackage "widgets";
-        contravariant = hspkgs.callHackage "contravariant" "1.5" {};
 
         # -- dh-core integration
         # the new datasets module from dh-core doesn't build because one of the
